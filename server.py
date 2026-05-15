@@ -307,7 +307,7 @@ async def predict(
 
         face_resized = cv2.resize(
             face_gray,
-            (128, 128)
+            (120, 120)
         )
 
         face_norm = (
@@ -318,8 +318,8 @@ async def predict(
 
         face_input = face_norm.reshape(
             1,
-            128,
-            128,
+            120,
+            120,
             1
         )
 
