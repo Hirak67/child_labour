@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 import cv2
+import os
 import numpy as np
 from tensorflow.keras.models import load_model
 
@@ -7,8 +8,15 @@ app = FastAPI()
 
 # ================= LOAD MODEL =================
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(
+    BASE_DIR,
+    "age_gender_model.h5"
+)
+
 model = load_model(
-    "age_gender_model.h5",
+    model_path,
     compile=False
 )
 
@@ -19,8 +27,15 @@ gender_dict = {
 
 # ================= FACE DETECTOR =================
 
-faceProto = "opencv_face_detector.pbtxt"
-faceModel = "opencv_face_detector_uint8.pb"
+faceProto = os.path.join(
+    BASE_DIR,
+    "opencv_face_detector.pbtxt"
+)
+
+faceModel = os.path.join(
+    BASE_DIR,
+    "opencv_face_detector_uint8.pb"
+)
 
 faceNet = cv2.dnn.readNet(
     faceModel,
