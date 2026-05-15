@@ -103,7 +103,9 @@ def home():
     return {
         "message": "Server Running"
     }
-
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 # ================= PREDICT =================
 
 @app.post("/predict")
@@ -196,3 +198,4 @@ async def predict(
         return {
             "error": str(e)
         }
+    
