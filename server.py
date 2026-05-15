@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, File
 import cv2
 import os
 import numpy as np
-from tensorflow.keras.models import load_model
+from keras.models import load_model
 
 app = FastAPI()
 
