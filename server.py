@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(
 
 MODEL_PATH = os.path.join(
     BASE_DIR,
-    "model_CNN_V2.h5"
+    "Age_Sex_Detection.h5"
 )
 
 model = None
